@@ -18,23 +18,13 @@ namespace FJExercises
 
                 string Input = Console.ReadLine();
 
-
                 if (Input == "quit") UserWantsToQuit = true;
                 if (Input == "config")
                 {
                     Console.WriteLine("Do you want to ignore uppercase? y/n");
-                    if (Console.ReadLine().ToLower() == "y")
-                    {
-                        IgnoreUppercase = true;
-                    }
-                    else IgnoreUppercase = false;
+                    IgnoreUppercase = (Console.ReadLine().ToLower() == "y") ? true : false;
                     Console.WriteLine("Do you want to ignore special characters? y/n");
-                    if (Console.ReadLine().ToLower() == "y" )
-                    {
-                        IgnoreSpecialChars = true;
-                    }
-                    else IgnoreSpecialChars = false;
-
+                    IgnoreSpecialChars = (Console.ReadLine().ToLower() == "y") ? true : false; 
                     Console.WriteLine("Please enter a string and press enter to check if it is a palindrome.");
                     Input = Console.ReadLine();
                 }
@@ -69,7 +59,6 @@ namespace FJExercises
 
             string reversedInput = StringReversal.ReverseString(input);
 
-
             if(ignoreSpecialChars)
             {
             string rg = "[^a-zA-Z]+";
@@ -77,8 +66,7 @@ namespace FJExercises
             input = Regex.Replace(input, @rg, "");
             }
 
-            if (reversedInput == input) return true;
-            else return false;
+           return ((reversedInput == input) ?true : false);
         }
     }
 }
